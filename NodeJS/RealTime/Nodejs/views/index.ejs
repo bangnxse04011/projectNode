@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Hello</title>
+        <script src="jquery.js"></script>
+        <script src="socket.io/socket.io.js"></script>
+        <script>
+            var socket = io('http://192.168.118.10:3000');
+
+            socket.on('Server',function(data){
+                $('#contend').append(data +",");
+            });
+
+            $(document).ready(function(){
+                $('#data').click(function(){
+                    var mess = document.getElementById('message').value;
+                    socket.emit('Client',mess);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        Hello,
+        <div id="data">Click send</div>
+        <input id="message" type="text" value=""/>
+        <h2 id="contend"></h2>
+    </body>
+</html>
