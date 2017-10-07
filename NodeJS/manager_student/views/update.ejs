@@ -10,14 +10,12 @@
         <td>Student ID</td>
         <td>Student Name</td>
         <td>Student Mark</td>
-        <td></td>
     </tr>
    <% studen.forEach(function(stu) { %>
       <tr>
         <td><%= stu.student_id %></td>
         <td><%= stu.student_name %></td>
         <td><%= stu.student_mark %></td>
-        <td><a href="../delete/<%= stu.student_id %>">Update</a></td>
       </tr>
     <%});%>
   </table >
