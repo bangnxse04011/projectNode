@@ -23,10 +23,14 @@ app.listen(port,function(){
 /**
  * Method Get 
  */
-app.get('/',function(req,res){
+app.get('/find-all',function(req,res){
     conn.query('SELECT * FROM student_manager',function(err,result){
         if(err) throw err;
-        res.render('index',{studen:result});
+        res.header('Content-type','application/json');
+        res.header('Charset','utf8');
+        res.end(JSON.stringify(result));
+        res.send(req.body);
+        // res.render('index',{studen:result});
     });
 });
 
